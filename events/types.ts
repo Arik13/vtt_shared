@@ -18,6 +18,19 @@ export namespace EVENT_TYPE {
         x: number;
         y: number;
     }
+    export interface CREATE_LOCATION extends EVENT_TYPE {
+        name: string;
+        mapImageID: string;
+        files: number;
+        ranks: number;
+        tileLength: number;
+        tileWidth: number;
+    }
+    export interface DOWNLOAD_IMAGE extends EVENT_TYPE {
+        id: string;
+        name: string;
+        file: ArrayBuffer;
+    }
 }
 
 // export {EVENT_TYPE};
