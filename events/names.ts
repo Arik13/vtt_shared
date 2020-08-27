@@ -1,8 +1,31 @@
+/*
+    The list of socket event names
+*/
+
 export enum EVENT_NAME {
     JOIN = "Join",
-    UPLOAD_IMAGE = "UploadImage",
-    DOWNLOAD_IMAGE = "DownloadImage",
-    CREATE_TOKEN = "CreateToken",
     LOAD_CAMPAIGN = "LoadCampaign",
-    CREATE_LOCATION = "CreateLocation"
+
+    // IMAGES //
+    // To server
+    UPLOAD_IMAGE = "UploadImage",
+    DELETE_IMAGE = "DeleteImage",
+
+    // From server
+    IMAGE_DOWNLOADED = "ImageDownloaded",
+    IMAGE_DELETED = "ImageDeleted",
+
+
+    // LOCATIONS //
+    // To server
+    CREATE_LOCATION = "CreateLocation",
+    DELETE_LOCATION = "DeleteLocation",
+
+    // To Client
+    LOCATION_DOWNLOADED = "LocationDownloaded",
+    LOCATION_DELETED = "LocationDeleted",
+
+    // TOKENS //
+    // To server
+    CREATE_TOKEN = "CreateToken",
 }

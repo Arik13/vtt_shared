@@ -1,25 +1,32 @@
+/*
+    This file contains the Type information for the Assets contained in the app.
+*/
+
 export namespace Asset {
-    export type ImageInfo = {
-        _id: string;
+    export interface Asset {
+        id?: string;
+    }
+    export interface ImageInfo extends Asset {
+        // _id: string;
         name: string;
         fileType: string;
         fileBuffer?: ArrayBuffer;
     }
 
-    export type LocationModel = {
+    export interface LocationModel extends Asset {
         ranks: number;
         files: number;
         tileWidth: number;
         tileLength: number;
     }
-    export type LocationData = {
-        locationID: string;
+    export interface LocationData extends Asset {
+        // locationID?: string;
         name: string;
         mapImageID: string;
         model: LocationModel;
     }
 
-    export type AssetSyncGroup = {
+    export interface AssetSyncGroup extends Asset {
         imageData: {
             toAdd: ImageInfo[],
             toRemove: string[],
