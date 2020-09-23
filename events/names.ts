@@ -24,8 +24,16 @@ export enum EVENT_NAME {
     // To Client
     LOCATION_DOWNLOADED = "LocationDownloaded",
     LOCATION_DELETED = "LocationDeleted",
+    LOCATION_UPDATED_NEW_TOKEN = "LocationUpdatedNewToken",
+    ACTIVE_LOCATION_UPDATED = "ActiveLocationUpdated",
+    UPDATE_ACTIVE_LOCATION = "UpdateActiveLocation",
 
     // TOKENS //
     // To server
     CREATE_TOKEN = "CreateToken",
+    DELETE_TOKEN = "DeleteToken",
+
+    // To Client
+    TOKEN_DOWNLOADED = "TokenDownloaded",
+    TOKEN_DELETED = "TokenDeleted",
 }
