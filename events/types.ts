@@ -1,4 +1,4 @@
-import { Directory } from '@shared/Directories/Directory';
+import { Directory } from '../Directories/Directory';
 /*
     The list of socket event types
 */
