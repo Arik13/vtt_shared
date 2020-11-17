@@ -36,4 +36,24 @@ export enum EVENT_NAME {
     // To Client
     TOKEN_DOWNLOADED = "TokenDownloaded",
     TOKEN_DELETED = "TokenDeleted",
+
+    // GAME //
+    // To Server
+    SEND_GAME_EVENT = "SendGameEvent",
+    DO_ACTION = "DoAction",
+
+    // To Client
+    GAME_EVENT_RECEIVED = "GameEventReceived",
+
+    // SCRIPT //
+    // To Server
+    CREATE_SCRIPT = "CreateScript",
+    UPDATE_SCRIPT = "UpdateScript",
+    DELETE_SCRIPT = "DeleteScript",
+
+    // To Client
+    DOWNLOAD_SCRIPT = "DownloadScript",
+    SCRIPT_UPDATED = "ScriptUpdated",
+    SCRIPT_DELETED = "ScriptDeleted",
+
 }

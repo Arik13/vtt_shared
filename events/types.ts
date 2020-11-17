@@ -97,6 +97,36 @@ export namespace EVENT_TYPE {
     export interface TOKEN_DELETED extends EVENT_TYPE {
         tokenID: string;
     }
+
+    // SCRIPT //
+    export interface CREATE_SCRIPT extends EVENT_TYPE {
+        fileName: string;
+        directoryID: string;
+    }
+    export interface UPDATE_SCRIPT extends EVENT_TYPE {
+        id: string;
+        name: string;
+        script: string;
+    }
+    export interface DELETE_SCRIPT extends EVENT_TYPE {
+        scriptID: string;
+        directoryID: string;
+    }
+
+    export interface DOWNLOAD_SCRIPT extends EVENT_TYPE {
+        scriptKeyValue: Asset.ScriptKeyValue;
+        directory: Directory;
+        parentID: string;
+    }
+    export interface SCRIPT_UPDATED extends EVENT_TYPE {
+        id: string;
+        script: string;
+        directoryID: string;
+    }
+    export interface SCRIPT_DELETED extends EVENT_TYPE {
+        scriptID: string;
+        directoryID: string;
+    }
 }
 
 // export {EVENT_TYPE};

@@ -63,6 +63,7 @@ export namespace Asset {
         imageKeys: string[];
         locationKeys: LocationKey[];
         tokenKeys: TokenKey[];
+        scriptKeys: ScriptKey[];
     }
     export interface AssetSyncGroup extends Asset {
         imageData: {
@@ -77,6 +78,10 @@ export namespace Asset {
             toAdd: TokenKeyValue[],
             toRemove: TokenKey[],
         }
+        scriptData: {
+            toAdd: ScriptKeyValue[],
+            toRemove: ScriptKey[],
+        }
         campaignData: CampaignData,
         directory: Directory
         // directories: {
@@ -89,5 +94,18 @@ export namespace Asset {
         campaignID: string;
         name: string;
         activeLocationID: string;
+    }
+
+    export interface ScriptData extends Asset {
+        name: string;
+        script: string;
+    }
+    export interface ScriptKey {
+        scriptID: string;
+        timestamp: string;
+    }
+    export interface ScriptKeyValue {
+        key: ScriptKey,
+        value: ScriptData,
     }
 }
