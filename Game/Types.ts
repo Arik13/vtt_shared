@@ -5,5 +5,6 @@ export namespace GAME_EVENT_TYPE {
     export interface DO_ACTION extends GAME_EVENT_TYPE {
         name: string;
         args: any[];
+        targetIDs: string[];
     }
 }

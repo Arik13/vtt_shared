@@ -3,109 +3,66 @@
 */
 
 import { Directory } from "../Directories/Directory";
+import { ClientConfig } from "./ClientConfig";
+import { Location } from "./Location";
+import { Token } from "./Token";
+import { DynamicComponent } from "./DynamicComponent";
+import { Script } from "./Script";
+import { StateObject } from "./StateObject";
 
-export namespace Asset {
-    export interface Asset {
-        id?: string;
-        timestamp?: string,
-    }
-
-    // Images
-    export interface ImageInfo extends Asset {
-        name: string;
-        fileType: string;
-        fileBuffer?: ArrayBuffer;
-    }
-
-    // Locations
-    export interface LocationModel extends Asset {
-        ranks: number;
-        files: number;
-        tileWidth: number;
-        tileLength: number;
-    }
-    export interface LocationData extends Asset {
-        name: string;
-        mapImageID: string;
-        model: LocationModel;
-        tokenIDs?: string[],
-    }
-
-    // Tokens
-    export interface TokenModel extends Asset {
-        position: {x: number, z: number};
-        dimensions: {width: number, length: number};
-    }
-    export interface TokenData extends Asset {
-        name: string;
-        imageID: string;
-        model: TokenModel;
-    }
-    export interface TokenKey {
-        tokenID: string;
-        timestamp: string;
-    }
-    export interface TokenKeyValue {
-        key: TokenKey,
-        value: TokenData,
-    }
-
-
-    export interface LocationKey {
-        locationID: string;
-        timestamp: string;
-    }
-    export interface LocationKeyValue {
-        key: LocationKey,
-        value: LocationData,
-    }
-    export interface AssetSyncKeys extends Asset {
-        imageKeys: string[];
-        locationKeys: LocationKey[];
-        tokenKeys: TokenKey[];
-        scriptKeys: ScriptKey[];
-    }
-    export interface AssetSyncGroup extends Asset {
-        imageData: {
-            toAdd: ImageInfo[],
-            toRemove: string[],
-        }
-        locationData: {
-            toAdd: LocationKeyValue[],
-            toRemove: LocationKey[],
-        }
-        tokenData: {
-            toAdd: TokenKeyValue[],
-            toRemove: TokenKey[],
-        }
-        scriptData: {
-            toAdd: ScriptKeyValue[],
-            toRemove: ScriptKey[],
-        }
-        campaignData: CampaignData,
-        directory: Directory
-        // directories: {
-        //     imageDirectory: Directory,
-        //     locationDirectory: Directory,
-        // }
-    }
-
-    export interface CampaignData extends Asset {
-        campaignID: string;
-        name: string;
-        activeLocationID: string;
-    }
-
-    export interface ScriptData extends Asset {
-        name: string;
-        script: string;
-    }
-    export interface ScriptKey {
-        scriptID: string;
-        timestamp: string;
-    }
-    export interface ScriptKeyValue {
-        key: ScriptKey,
-        value: ScriptData,
-    }
+export {
+    Token,
+    Script,
+    Location,
+    StateObject,
+    DynamicComponent,
+    ClientConfig,
 }
+
+export interface Asset {
+    id?: string;
+    timestamp?: string;
+}
+export interface Key {
+    id: string;
+    timestamp: string;
+}
+
+export interface SyncGroup extends Asset {
+    imageData:      {toRemove: string[], toAdd: ImageInfo[]};
+    locationData:   {toRemove: Key[], toAdd: Location.KeyValue[]};
+    tokenData:      {toRemove: Key[], toAdd: Token.KeyValue[]};
+    scriptData:     {toRemove: Key[], toAdd: Script.KeyValue[]};
+    dcData:         {toRemove: Key[], toAdd: DynamicComponent.KeyValue[]};
+    soData:         {toRemove: Key[], toAdd: StateObject.KeyValue[]};
+    campaignData: CampaignData;
+    clientConfig: ClientConfig.Data;
+    directory: Directory;
+}
+
+export interface SyncKeys extends Asset {
+    imageKeys: string[];
+    locationKeys: Key[];
+    tokenKeys: Key[];
+    scriptKeys: Key[];
+    dynamicComponentKeys: Key[];
+    soKeys: Key[];
+}
+
+// Campaign
+export interface CampaignData extends Asset {
+    id: string;
+    name: string;
+    activeLocationID: string;
+    // dynamicViewBindings: DynamicViewBindings;
+}
+
+// Images
+export interface ImageInfo extends Asset {
+    name: string;
+    fileType: string;
+    fileBuffer?: ArrayBuffer;
+}
+
+
+// State Object

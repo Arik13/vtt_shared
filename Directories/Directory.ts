@@ -1,5 +1,5 @@
 export interface DirectorySchema {
-    id: string,
+    id?: string,
     name: string;
     parent: string;
     children: string[];
@@ -7,7 +7,7 @@ export interface DirectorySchema {
 }
 
 export interface Directory {
-    id: string,
+    id?: string,
     name: string;
     parent: Directory;
     children: Directory[];
@@ -56,11 +56,8 @@ export const isAncestor = (superNode: Directory, subNode: Directory): boolean =>
 }
 
 export const getDirectory = (id: string, dir: Directory): Directory => {
-    console.log(id, " :", dir.id, " : ", id == dir.id);
     if (dir.id == id) return dir;
-    // if (rootDir.children.length == 0) return null;
     for (let i = 0; i < dir.children.length; i++) {
-        // let subDir = dir.children[i];
         let foundDir = getDirectory(id, dir.children[i]);
         if (foundDir) return foundDir;
     }
@@ -68,7 +65,14 @@ export const getDirectory = (id: string, dir: Directory): Directory => {
 export const traverse = (dir: Directory, visit: (dir: Directory) => void) => {
     visit(dir);
     dir.children.forEach(subDir => {
-        visit(subDir);
         traverse(subDir, visit);
     })
+}
+export const deleteDirectory = (dir: Directory) => {
+    let parent = dir.parent;
+    dir.parent = null;
+    let childIndex = parent.children.findIndex((subDir: Directory) => {
+        if (dir.id == subDir.id) return true;
+    });
+    parent.children.splice(childIndex, 1);
 }
