@@ -83,4 +83,16 @@ export enum EVENT_NAME {
     STATE_OBJECT_CREATED = "StateObjectCreated",
     STATE_OBJECT_DELETED = "StateObjectDeleted",
     STATE_OBJECT_UPDATED = "StateObjectUpdated",
+
+
+    // STATE OBJECT //
+    // To Server
+    CREATE_ROLL = "CreateRoll",
+    DELETE_ROLL = "DeleteRoll",
+    UPDATE_ROLL = "UpdateRoll",
+
+    // To Client
+    ROLL_CREATED = "RollCreated",
+    ROLL_DELETED = "RollDeleted",
+    ROLL_UPDATED = "RollUpdated",
 }

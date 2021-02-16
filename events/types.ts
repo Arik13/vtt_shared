@@ -117,6 +117,7 @@ export namespace EVENT_TYPE {
     }
     export interface DELETE_TOKEN extends EVENT_TYPE {
         tokenID: string;
+        locationID: string;
     }
     export interface TOKEN_CREATED extends EVENT_TYPE {
         locationID: string;
@@ -124,6 +125,7 @@ export namespace EVENT_TYPE {
     }
     export interface TOKEN_DELETED extends EVENT_TYPE {
         tokenID: string;
+        locationID: string;
     }
     export interface TOKEN_UPDATED extends EVENT_TYPE {
         // tokenID: string;
@@ -216,4 +218,24 @@ export namespace EVENT_TYPE {
         directoryID: string;
     }
 
+    // ROLL //
+    export interface CREATE_ROLL extends EVENT_TYPE {
+        roll: Asset.Roll.Data;
+    }
+    export interface UPDATE_ROLL extends EVENT_TYPE {
+        roll: Asset.Roll.Data;
+    }
+    export interface DELETE_ROLL extends EVENT_TYPE {
+        id: string;
+    }
+
+    export interface ROLL_CREATED extends EVENT_TYPE {
+        keyValue: Asset.Roll.KeyValue;
+    }
+    export interface ROLL_UPDATED extends EVENT_TYPE {
+        roll: Asset.Roll.Data;
+    }
+    export interface ROLL_DELETED extends EVENT_TYPE {
+        id: string;
+    }
 }

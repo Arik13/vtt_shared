@@ -9,6 +9,7 @@ import { Token } from "./Token";
 import { DynamicComponent } from "./DynamicComponent";
 import { Script } from "./Script";
 import { StateObject } from "./StateObject";
+import { Roll } from "./Roll";
 
 export {
     Token,
@@ -17,6 +18,7 @@ export {
     StateObject,
     DynamicComponent,
     ClientConfig,
+    Roll,
 }
 
 export interface Asset {
@@ -35,6 +37,7 @@ export interface SyncGroup extends Asset {
     scriptData:     {toRemove: Key[], toAdd: Script.KeyValue[]};
     dcData:         {toRemove: Key[], toAdd: DynamicComponent.KeyValue[]};
     soData:         {toRemove: Key[], toAdd: StateObject.KeyValue[]};
+    rollData:       {toRemove: Key[], toAdd: Roll.KeyValue[]};
     campaignData: CampaignData;
     clientConfig: ClientConfig.Data;
     directory: Directory;
@@ -47,6 +50,7 @@ export interface SyncKeys extends Asset {
     scriptKeys: Key[];
     dynamicComponentKeys: Key[];
     soKeys: Key[];
+    rollKeys: Key[];
 }
 
 // Campaign
