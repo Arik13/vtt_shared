@@ -181,7 +181,8 @@ export namespace EVENT_TYPE {
         parentID: string;
     }
     export interface DYNAMIC_COMPONENT_UPDATED extends EVENT_TYPE {
-        dynamicComponent: Asset.DynamicComponent.Data;
+        keyValue: Asset.DynamicComponent.KeyValue;
+        // dynamicComponent: Asset.DynamicComponent.Data;
         directoryID: string;
     }
     export interface DYNAMIC_COMPONENT_DELETED extends EVENT_TYPE {

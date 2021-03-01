@@ -27,15 +27,23 @@ export namespace DIRECTORY_EVENT_TYPE {
         name: string;
         itemID?: string;
     }
-    export interface DELETE_DIRECTORY extends DIRECTORY_EVENT_TYPE {
+    export interface UPDATE_DIRECTORY extends DIRECTORY_EVENT_TYPE {
         directoryID: string;
+        name: string;
     }
-    export interface DIRECTORY_DELETED extends DIRECTORY_EVENT_TYPE {
+    export interface DELETE_DIRECTORY extends DIRECTORY_EVENT_TYPE {
         directoryID: string;
     }
     export interface DIRECTORY_CREATED extends DIRECTORY_EVENT_TYPE {
         // rootName: ROOT_NAME,
         directory: DirectorySchema,
         targetDirectoryID: string,
+    }
+    export interface DIRECTORY_UPDATED extends DIRECTORY_EVENT_TYPE {
+        directoryID: string;
+        name: string;
+    }
+    export interface DIRECTORY_DELETED extends DIRECTORY_EVENT_TYPE {
+        directoryID: string;
     }
 }

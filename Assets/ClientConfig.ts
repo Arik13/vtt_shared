@@ -4,9 +4,11 @@ import {mongoose} from "../../vtt_server/exports";
 export namespace ClientConfig {
     export interface Data extends Asset.Asset {
         createCharacter: ViewBinding;
+        viewCharacter: ViewBinding;
     }
     export const Schema = {
         createCharacter: {actionTarget: String, dcID: String},
+        viewCharacter: {actionTarget: String, dcID: String},
     }
     export interface KeyValue {
         key: Asset.Key;
